@@ -2,10 +2,13 @@ import React from 'react'
 
 
 export default function Alert(props) { 
-   const capitalize = (word)=>{ 
-	   let w = word.toUpperCase() ; 
-	   return w ;  
-   }
+  const capitalize = (word) => {
+    if (word === undefined) {
+        return '';
+    }
+    let w = word.toUpperCase();
+    return w;
+};
 	
   return ( 
 	<> 

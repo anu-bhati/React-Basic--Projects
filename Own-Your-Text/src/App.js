@@ -1,10 +1,15 @@
-
+import React , {useState} from 'react'
 import './App.css';
 import Navbar from './Components/Navbar' ;  
 import Alert from './Components/Alert' ;
 import Textarea from './Components/Textarea' ; 
-import React , {useState} from 'react'
-//import About from './Components/About' ;  
+import About from './Components/About' ; 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom"; 
 
 function App() { 
 
@@ -35,12 +40,16 @@ function App() {
   }
   return (
    <> 
+   <Router> 
    <Navbar title = "Textutils" about = "About Us" mode = {mode} toggleMode = {toggleMode} /> 
    <Alert alert = {alert}/>
    <div className = "container my-3"> 
-	 <Textarea heading = "Enter the text to analyze" mode = {mode} showAlert = {showAlert} />  
-   {/*<About/>*/}
+   <Routes>
+        <Route path="/" element={<Textarea heading = "Enter the text to analyze" mode = {mode} showAlert = {showAlert} />} />
+        <Route path="/About" element={<About />} />
+      </Routes>  
 	 </div> 
+   </Router>
    </>
   );
 }
